@@ -1,0 +1,36 @@
+'''2
+12:01 AM
+4
+12:00 AM 11:42 PM
+12:01 AM 11:59 AM
+12:30 AM 12:00 PM
+11:59 AM 11:59 PM
+04:12 PM
+5
+12:00 AM 11:59 PM
+01:00 PM 04:12 PM
+04:12 PM 04:12 PM
+04:12 AM 04:12 AM
+12:00 PM 11:59 PM'''
+
+t = "12:01 PM"   #converting to minutes
+if(t[6:]=="PM"):
+	rmin = int(t[0:2])*60+int(t[3:5]) + 12*60   #add 12 hrs for first 12 hrs of day
+else:
+	rmin = 	int(t[0:2])*60+int(t[3:5])
+#print(rmin)
+mtime = []
+time = ["12:00 AM 11:42 PM", "12:01 AM 11:59 AM", "12:30 AM 12:00 PM", "11:59 AM 11:59 PM"]
+for i in range(len(time)):
+	temp = []
+	if(time[i][6:8]=="PM"):
+		temp.append(int(time[i][0:2])*60+int(time[i][3:5]) + 12*60)   #add 12 hrs for first 12 hrs of day
+	else:
+		temp.append(int(time[i][0:2])*60+int(time[i][3:5]))
+	if(time[i][15:]=="PM"):
+		temp.append(int(time[i][9:11])*60+int(time[i][12:14]) + 12*60)   #add 12 hrs for first 12 hrs of day
+	else:
+		temp.append(int(time[i][9:11])*60+int(time[i][12:14]))
+	mtime.append(temp)
+print(mtime)
+
